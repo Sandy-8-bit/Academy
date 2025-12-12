@@ -7,7 +7,6 @@ const HeroSection = () => {
       <div className="absolute inset-0 bg-[linear-gradient(90deg,#1e3a8a_1px,transparent_1px),linear-gradient(#1e3a8a_1px,transparent_1px)] bg-size-[70px_70px] opacity-10 pointer-events-none"></div>
 
       <div className="relative mx-auto px-4 sm:px-6 py-10 md:py-16 flex flex-col md:flex-row items-center gap-10">
-        
         {/* LEFT CONTENT */}
         <motion.div
           className="flex-1 flex flex-col gap-6 items-start"
@@ -54,7 +53,7 @@ const HeroSection = () => {
             }}
           >
             {[
-              "Industry-guided curriculum",
+              "Industry-Grade curriculum",
               "Hands-on real projects",
               "AI tools integrated training",
               "Personal mentor support",

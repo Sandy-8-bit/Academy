@@ -37,8 +37,8 @@ const GradientLines = () => (
   <>
     {/* Top Line */}
     <div
-      className="absolute left-0 top-4 -z-0 h-px w-full 
-      bg-gradient-to-l from-gray-100 via-gray-200 to-gray-300
+      className="absolute left-0 top-4  z-0 h-px w-full 
+      bg-linear-to-l from-gray-100 via-gray-200 to-gray-300
       dark:from-gray-700 dark:via-gray-600 dark:to-gray-500
       sm:top-6 md:top-8"
     />
@@ -46,7 +46,7 @@ const GradientLines = () => (
     {/* Bottom Line */}
     <div
       className="absolute bottom-4 left-0 z-0 h-px w-full 
-      bg-gradient-to-r from-gray-100 via-gray-200 to-gray-300
+      bg-linear-to-r from-gray-100 via-gray-200 to-gray-300
       dark:from-gray-700 dark:via-gray-600 dark:to-gray-500
       sm:bottom-6 md:bottom-8"
     />
@@ -55,12 +55,12 @@ const GradientLines = () => (
     <div className="relative w-full border-x border-transparent">
       <div
         className="absolute inset-y-0 left-0 w-px 
-        bg-gradient-to-t from-gray-100 via-gray-200 to-gray-300
+        bg-linear-to-t from-gray-100 via-gray-200 to-gray-300
         dark:from-gray-700 dark:via-gray-600 dark:to-gray-500"
       />
       <div
         className="absolute inset-y-0 right-0 w-px 
-        bg-gradient-to-t from-gray-100 via-gray-200 to-gray-300
+        bg-linear-to-t from-gray-100 via-gray-200 to-gray-300
         dark:from-gray-700 dark:via-gray-600 dark:to-gray-500"
       />
 

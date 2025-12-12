@@ -43,8 +43,8 @@ export default function CertificationFAQ() {
   };
 
   return (
-    <div className="min-h-screen bg-white">
-      <div className="flex  mx-auto px-4 sm:px-6 lg:px-8 pt-16 ">
+    <div className=" bg-white">
+      <div className="flex  mx-auto px-4 sm:px-6 lg:px-8 py-16 ">
         
         {/* Header Section */}
         <div className="text-center flex-1">
@@ -71,8 +71,8 @@ export default function CertificationFAQ() {
                   onClick={() => toggleQuestion(faq.id)}
                   className={`w-full px-8 py-4 cursor-pointer flex items-start justify-between gap-6 text-left transition-all duration-300 rounded-2xl ${
                     isOpen 
-                      ? 'bg-blue-900 shadow-2xl' 
-                      : 'bg-white hover:bg-gray-50 shadow-md hover:shadow-lg'
+                      ? 'bg-blue-900 ' 
+                      : 'bg-white hover:bg-gray-50 shadow-md '
                   }`}
                 >
                   <h3 className={`text-xl  font-bold transition-colors duration-300 flex-1 ${

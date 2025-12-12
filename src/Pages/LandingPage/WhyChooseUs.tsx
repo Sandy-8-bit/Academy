@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import { StickyScroll } from "../../components/ui/sticky-scroll-reveal";
+import { StickyScroll } from "../../Component/ui/sticky-scroll-reveal";
 
 interface ContentItem {
   title: string;
@@ -40,7 +40,7 @@ const content: ContentItem[] = [
   },
 
   {
-    title: "Hands-On Industry-Level Tasks",
+    title: "Hands-On Industry-Level Projects",
     description:
       "Gain practical expertise by working on real-life industry-level assignments and projects. Build confidence with true hands-on experience.",
     content: (
@@ -72,7 +72,7 @@ const content: ContentItem[] = [
 
 
 
-export function StickyScrollRevealDemo() {
+export function WhyChooseUs() {
   return (
     <div className="w-full ">
 
