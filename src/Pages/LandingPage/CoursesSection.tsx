@@ -155,7 +155,7 @@ export default function CoursesSection() {
     sm:grid-cols-2  
     md:grid-cols-3 
     lg:grid-cols-4 
-    gap-6 sm:gap-8
+    gap-3 md:gap-8
   "
 >
   {filteredCourses
