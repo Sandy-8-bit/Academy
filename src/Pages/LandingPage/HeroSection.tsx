@@ -39,9 +39,24 @@ const HeroSection = () => {
             practical, real-world learning.
           </motion.p>
 
+     <motion.div
+          className="flex-1 flex md:hidden justify-center w-full"
+          initial={{ opacity: 0, scale: 0.9 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+        >
+          <div className="w-full max-w-xl md:max-w-2xl aspect-video rounded-lg overflow-hidden shadow-lg border border-blue-900">
+            <video
+              src="https://dmifstorage.blob.core.windows.net/course-1-videos/DMIF_Video.mp4?se=2026-01-04T15%3A19%3A48Z&sp=r&sv=2025-11-05&sr=b&sig=wkn783TsyO2bOLVnzvJFB79AJH2S8XKEXYg%2BjuZJ5aM%3D"
+              className="w-full h-full object-cover"
+              controls
+            />
+          </div>
+        </motion.div>
           {/* Features - Stagger Animation */}
           <motion.div
-            className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 max-w-2xl"
+            className="grid grid-cols-2 sm:grid-cols-2 gap-4 sm:gap-6 max-w-2xl"
             initial="hidden"
             whileInView="show"
             viewport={{ once: true }}
@@ -68,7 +83,7 @@ const HeroSection = () => {
                 className="flex items-center gap-3 bg-blue-50 p-3 rounded-xl border-2 border-blue-900"
               >
                 <span className="text-blue-900 text-2xl font-bold">✓</span>
-                <p className="text-gray-900 text-sm md:text-base font-semibold">
+                <p className="text-gray-900 text-[13px] md:text-base font-semibold">
                   {item}
                 </p>
               </motion.div>
@@ -78,7 +93,7 @@ const HeroSection = () => {
 
         {/* RIGHT SIDE VIDEO */}
         <motion.div
-          className="flex-1 flex justify-center w-full"
+          className="flex-1 hidden md:flex justify-center w-full"
           initial={{ opacity: 0, scale: 0.9 }}
           whileInView={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8 }}

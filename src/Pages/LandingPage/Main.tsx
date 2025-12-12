@@ -16,7 +16,7 @@ const Main = () => {
       <CoursesSection />
       <Testimonial />
       <CertificationFAQ />
-      <div className="px-20 bg-white py-10">
+      <div className="md:px-20 md:py-5 px-4 bg-white py-10">
         <CtaSection />
       </div>
     </Layout>

@@ -20,7 +20,7 @@ const cards = [
 
 export function Usage() {
   return (
-    <div className=" flex">
+    <div className=" flex flex-col md:flex-row">
       {cards.map((card, i) => (
         <Card
           key={i}

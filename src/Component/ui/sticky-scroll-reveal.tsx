@@ -86,7 +86,7 @@ export const StickyScroll: React.FC<StickyScrollProps> = ({
                 transition={{ duration: 0.6, ease: "easeOut" }}
                 style={{ background: linearGradients[activeCard % linearGradients.length] }}
                 className={cn(
-                  "h-[400px] md:h-[500px] lg:h-[600px] w-full rounded-2xl overflow-hidden shadow-2xl",
+                  "h-[400px] md:h-[500px] lg:h-[600px] w-full rounded-2xl overflow-hidden shadow-xl",
                   
                 )}
               >
@@ -105,82 +105,3 @@ export const StickyScroll: React.FC<StickyScrollProps> = ({
   );
 };
 
-// Demo Component
-export default function Demo() {
-  const content: ContentItem[] = [
-    {
-      title: "ISO Certified Excellence",
-      description:
-        "Get globally recognized ISO certifications for your business. Our expert team guides you through the entire certification process, ensuring compliance with international standards. Boost your credibility and open doors to new business opportunities.",
-      content: (
-        <div className="h-full w-full bg-white flex items-center justify-center p-8">
-          <img 
-            src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&q=80" 
-            alt="ISO Certification"
-            className="w-full h-full object-cover rounded-lg"
-          />
-        </div>
-      ),
-    },
-    {
-      title: "Quick Turnaround Time",
-      description:
-        "Time is money. We understand that. Our streamlined certification process ensures you get certified faster than traditional methods. With our efficient documentation and expert consultation, achieve your certifications in record time without compromising quality.",
-      content: (
-        <div className="h-full w-full bg-white flex items-center justify-center p-8">
-          <img 
-            src="https://images.unsplash.com/photo-1557426272-fc759fdf7a8d?w=800&q=80" 
-            alt="Fast Process"
-            className="w-full h-full object-cover rounded-lg"
-          />
-        </div>
-      ),
-    },
-    {
-      title: "Expert Consultation",
-      description:
-        "Our team of certified professionals brings years of industry experience. We provide personalized guidance tailored to your business needs. From documentation to audit preparation, we're with you every step of the way to ensure successful certification.",
-      content: (
-        <div className="h-full w-full bg-white flex items-center justify-center p-8">
-          <img 
-            src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&q=80" 
-            alt="Expert Team"
-            className="w-full h-full object-cover rounded-lg"
-          />
-        </div>
-      ),
-    },
-    {
-      title: "Affordable Pricing",
-      description:
-        "Quality certifications shouldn't break the bank. We offer competitive pricing packages designed for businesses of all sizes. Transparent pricing with no hidden costs. Invest in your business growth without the financial burden.",
-      content: (
-        <div className="h-full w-full bg-white flex items-center justify-center p-8">
-          <img 
-            src="https://images.unsplash.com/photo-1559526324-4b87b5e36e44?w=800&q=80" 
-            alt="Affordable Services"
-            className="w-full h-full object-cover rounded-lg"
-          />
-        </div>
-      ),
-    },
-  ];
-
-  return (
-    <div className="w-full bg-white">
-      {/* Hero Section */}
-      <div className="bg-linear-to-br from-blue-900 to-blue-700 text-white py-20 px-8">
-        <div className="max-w-7xl mx-auto text-center">
-          <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6">
-            Why Choose Us?
-          </h1>
-          <p className="text-xl md:text-2xl text-blue-100 max-w-3xl mx-auto">
-            Your trusted partner for professional certifications. We make the certification process simple, fast, and affordable.
-          </p>
-        </div>
-      </div>
-      
-      <StickyScroll content={content} />
-    </div>
-  );
-}

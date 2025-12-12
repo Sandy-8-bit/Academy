@@ -77,11 +77,11 @@ export function WhyChooseUs() {
     <div className="w-full ">
 
       {/* Modern Theme Header — MATCHES THE SCREENSHOT */}
-      <div className="bg-white pt-5 px-8  border-gray-200">
+      <div className="bg-white pt-5 px-4 md:px-8  border-gray-200">
         <div className="  text-center">
 
           {/* Heading with blue highlight effect */}
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 leading-tight mb-4">
+          <h1 className="text-3xl md:text-5xl font-bold text-gray-900 leading-tight mb-4">
             <span>Why Choose Us ? </span>
             {/* <span className="bg-blue-900 text-white px-2 py-1 rounded">
               Us?
@@ -89,7 +89,7 @@ export function WhyChooseUs() {
           </h1>
 
           {/* Minimal description */}
-          <p className="text-gray-600 text-lg text-center">
+          <p className="text-gray-600 text-[13px] md:text-lg text-center">
             Your trusted partner for professional certifications — built on expertise,
             transparency, and results-driven processes.
           </p>

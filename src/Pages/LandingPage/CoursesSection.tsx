@@ -119,10 +119,10 @@ export default function CoursesSection() {
       : courses.filter((c) => c.category === activeCategory);
 
   return (
-    <div className="w-full bg-white py-8 px-6 md:px-12">
+    <div className="w-full bg-white py-8 px-4 md:px-8">
       <div>
         {/* Heading */}
-        <h2 className="text-3xl md:text-4xl font-bold mb-6 text-gray-900 cursor-default">
+        <h2 className="mb-6">
           <LayoutTextFlip
             text=" Training That Drives"
             words={["Responsiblity", "Productivity", "Efficiency"]}
@@ -131,7 +131,7 @@ export default function CoursesSection() {
         </h2>
 
         {/* Category Tabs */}
-        <div className="flex flex-wrap gap-3 mb-10">
+        <div className="flex overflow-x-auto gap-3 mb-10">
           {categories.map((cat) => (
             <button
               key={cat}
@@ -148,55 +148,96 @@ export default function CoursesSection() {
         </div>
 
         {/* Course Cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
-          {filteredCourses.slice(0, 8).map((course) => {
-            const isComingSoon = course.comingSoon;
+<div
+  className="
+    grid 
+    grid-cols-2
+    sm:grid-cols-2  
+    md:grid-cols-3 
+    lg:grid-cols-4 
+    gap-6 sm:gap-8
+  "
+>
+  {filteredCourses
+    .slice(0, window.innerWidth < 640 ? 6 : 8)
+    .map((course) => {
+      const isComingSoon = course.comingSoon;
 
-            return (
-              <motion.div
-                key={course.id}
-                whileHover={isComingSoon ? {} : { y: -6 }}
-                transition={{ duration: 0.2 }}
-                className={`relative bg-white rounded-xl shadow-md transition-all overflow-hidden border border-gray-200 
-                  ${
-                    isComingSoon
-                      ? "opacity-70 pointer-events-none"
-                      : "hover:shadow-lg cursor-pointer"
-                  }`}
-              >
-                {/* Coming Soon Badge */}
-                {isComingSoon && (
-                  <span className="absolute top-3 right-3 bg-blue-900 text-white px-3 py-1 text-xs font-semibold rounded-full shadow">
-                    Coming Soon
-                  </span>
-                )}
+      return (
+        <motion.div
+          key={course.id}
+          whileHover={isComingSoon ? {} : { y: -6 }}
+          transition={{ duration: 0.2 }}
+          className={`
+            flex flex-col p-2 md:4
+             bg-white rounded-xl shadow-md border border-gray-200
+            ${isComingSoon ? "" : "hover:shadow-lg cursor-pointer"}
+          `}
+        >
+       
 
-                <img
-                  src={course.image}
-                  alt={course.title}
-                  className="h-40 w-full object-cover"
-                />
+          {/* Image */}
+          <img
+            src={course.image}
+            alt={course.title}
+            className="
+              w-full 
+              h-28        /* Mobile */
+              sm:h-36     /* Tablet */
+              md:h-40     /* Desktop */
+              object-cover
+            "
+          />
 
-                <div className="p-5">
-                  <h3 className="font-semibold text-gray-900 mb-2 text-lg cursor-pointer">
-                    {course.title}
-                  </h3>
+          {/* Content */}
+          <div className="p-3 h-full sm:p-5 flex flex-col gap-2">
+            <h3
+              className="
+                text-sm sm:text-base md:text-lg 
+                font-semibold text-gray-900 
+                cursor-pointer
+              "
+            >
+              {course.title}
+            </h3>
 
-                  <p className="text-gray-500 text-sm mb-4 cursor-default">
-                    {course.duration}
-                  </p>
+            <p
+              className="
+                text-[11px] sm:text-sm 
+                text-gray-500
+              "
+            >
+              {course.duration}
+            </p>
 
-                  {/* See Details Button */}
-                  {!isComingSoon && (
-                    <button onClick={()=>{navigate(`${appRoutes.Courses.path}/${course.id}`)}} className="w-full  py-2 rounded-lg bg-blue-900 text-white text-sm font-medium hover:bg-blue-800 transition cursor-pointer">
-                      See Details
-                    </button>
-                  )}
-                </div>
-              </motion.div>
-            );
-          })}
-        </div>
+            {/* Button */}
+          
+          </div>
+            <button
+              onClick={() => {
+                if (!isComingSoon) {
+                  navigate(`${appRoutes.Courses.path}/${course.id}`);
+                }
+              }}
+              className={`
+                w-full py-1.5  sm:py-2 
+                rounded-lg 
+                text-xs sm:text-sm font-medium 
+                 
+                ${
+                  isComingSoon
+                    ? "bg-gray-200 text-gray-600 cursor-not-allowed"
+                    : "bg-blue-900 text-white hover:bg-blue-800 cursor-pointer"
+                }
+              `}
+            >
+              {isComingSoon ? "Coming Soon" : "See Details"}
+            </button>
+        </motion.div>
+      );
+    })}
+</div>
+
 
         {/* View All Button */}
         <div className="flex justify-center mt-12">
