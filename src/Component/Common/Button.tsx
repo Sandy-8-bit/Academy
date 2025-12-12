@@ -1,0 +1,147 @@
+import React from "react";
+import { useLongPress } from "../../Hooks/useLongPress";
+
+type ButtonState = "default" | "outline" | "danger";
+
+interface ButtonSmProps {
+  className?: string;
+  state: ButtonState;
+  text?: string;
+  disabled?: boolean;
+  children?: React.ReactNode;
+  imgUrl?: string;
+  isPending?: boolean;
+  iconPosition?: "left" | "right";
+  type?: "button" | "submit" | "reset";
+  onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void;
+  onLongPress?: () => void;
+  longPressThreshold?: number;
+  longPressRepeatInterval?: number;
+}
+
+export const ButtonSm: React.FC<ButtonSmProps> = ({
+  state,
+  text,
+  children,
+  onClick,
+  onLongPress,
+  longPressThreshold = 500,
+  longPressRepeatInterval = 100,
+  type = "button",
+  disabled = false,
+  className = "",
+  imgUrl,
+  isPending = false,
+  iconPosition = "left",
+}) => {
+  const longPressHandlers = useLongPress({
+    onLongPress,
+    onClick: onClick
+      ? () => onClick({} as React.MouseEvent<HTMLButtonElement>)
+      : undefined,
+    threshold: longPressThreshold,
+    repeatInterval: longPressRepeatInterval,
+  });
+
+  const buttonProps = onLongPress
+    ? {
+        ...longPressHandlers,
+        onClick: undefined, // Avoid conflict
+      }
+    : {
+        onClick,
+      };
+
+  return (
+<button
+  type={type}
+  disabled={disabled}
+  className={`btn-sm flex cursor-pointer flex-row items-center gap-2 rounded-[9px] px-3 py-2 text-sm transition-all duration-200 ease-in-out select-none 
+    ${
+      state === "default"
+        ? "bg-blue-900 hover:bg-blue-800 active:bg-blue-700 text-white"
+        : state === "outline"
+        ? "text-gray-800 outline-1 outline-slate-300 hover:bg-gray-100 active:bg-gray-200"
+        : state === "danger"
+        ? "bg-[#DC3545] hover:bg-[#BB2D3B] active:bg-[#A52834] text-white"
+        : ""
+    }
+    ${className} flex justify-center`}
+  {...buttonProps}
+>
+      {/* Left icon */}
+      {imgUrl && iconPosition === "left" && (
+        <img src={imgUrl} alt="" className="min-h-4 min-w-4" />
+      )}
+
+      {/* Text or children */}
+      {children ? children : text}
+
+      {/* Right icon */}
+      {imgUrl && iconPosition === "right" && (
+        <img src={imgUrl} alt="" className="min-h-4 min-w-4" />
+      )}
+
+      {/* Spinner */}
+      {isPending && <Spinner size="sm" className="text-white" />}
+    </button>
+  );
+};
+
+
+
+export default ButtonSm;
+
+interface SpinnerProps {
+  size?: "sm" | "md" | "lg";
+  className?: string;
+}
+
+const Spinner: React.FC<SpinnerProps> = ({ size = "md", className = "" }) => {
+  const sizeClasses = {
+    sm: "w-4 h-4",
+    md: "w-5 h-5",
+    lg: "w-6 h-6",
+  };
+
+  return (
+    <div className={`${sizeClasses[size]} ${className}`}>
+      <svg
+        className="animate-spin"
+        viewBox="0 0 24 24"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <circle
+          cx="12"
+          cy="12"
+          r="10"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeDasharray="31.416"
+          strokeDashoffset="31.416"
+          className="opacity-25"
+        />
+        <circle
+          cx="12"
+          cy="12"
+          r="10"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeDasharray="31.416"
+          strokeDashoffset="23.562"
+          className="opacity-75"
+        >
+          <animate
+            attributeName="stroke-dashoffset"
+            dur="2s"
+            values="31.416;0;31.416"
+            repeatCount="indefinite"
+          />
+        </circle>
+      </svg>
+    </div>
+  );
+};
