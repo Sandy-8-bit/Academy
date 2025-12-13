@@ -42,7 +42,7 @@ export default function CertificationFAQ() {
   };
 
   return (
-    <div className="bg-white">
+    <div id='faq' className="bg-white">
       <div className="flex flex-col md:flex-row mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-16">
 
         {/* Heading */}

@@ -21,8 +21,9 @@ const TopNav: React.FC = () => {
 
         {/* Center Links (Desktop Only) */}
         <div className="hidden md:flex items-center gap-10 text-blue-900 font-medium">
+          <a href="#why" className="hover:text-blue-700 transition">Why Choose Us</a>
           <a href="#courses" className="hover:text-blue-700 transition">Courses</a>
-          <a href="#teach" className="hover:text-blue-700 transition">How We Teach</a>
+          
           <a href="#faq" className="hover:text-blue-700 transition">FAQ</a>
         </div>
 
@@ -59,12 +60,13 @@ const TopNav: React.FC = () => {
 
         {/* Links */}
         <div className="flex flex-col px-5 py-6 gap-6 text-blue-900 text-lg">
+           <a href="#why" className="hover:text-blue-700" onClick={() => setSidebarOpen(false)}>
+            Why Choose Us
+          </a>
           <a href="#courses" className="hover:text-blue-700" onClick={() => setSidebarOpen(false)}>
             Courses
           </a>
-          <a href="#teach" className="hover:text-blue-700" onClick={() => setSidebarOpen(false)}>
-            How We Teach
-          </a>
+         
           <a href="#faq" className="hover:text-blue-700" onClick={() => setSidebarOpen(false)}>
             FAQ
           </a>

@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import { motion, useScroll } from "framer-motion";
+import { useMotionValueEvent } from "framer-motion";
 
 const cn = (...classes: string[]) => classes.filter(Boolean).join(" ");
 
@@ -31,6 +32,10 @@ export const StickyScroll: React.FC<StickyScrollProps> = ({
     "#ffffff", // white
   ];
 
+const [showProgress, setShowProgress] = useState(false);
+
+
+
   const linearGradients = [
     "linear-gradient(to bottom right, #1e3a8a, #3b82f6)", // blue-900 to blue-500
     "linear-gradient(to bottom right, #1e40af, #60a5fa)", // blue-800 to blue-400
@@ -48,6 +53,18 @@ export const StickyScroll: React.FC<StickyScrollProps> = ({
     });
     return () => unsubscribe();
   }, [scrollYProgress, content.length]);
+
+  useMotionValueEvent(scrollYProgress, "change", (latest) => {
+
+
+  // Show only while container is actively scrolling
+  if (latest > 0 && latest < 1) {
+    setShowProgress(true);
+  } else {
+    setShowProgress(false);
+  }
+});
+
 
   return (
     <div ref={containerRef} className="relative">
@@ -96,6 +113,17 @@ export const StickyScroll: React.FC<StickyScrollProps> = ({
           </div>
         </motion.div>
       </div>
+      {/* Scroll progress bar */}
+      {showProgress && (
+<div className="fixed top-4 left-1/2 -translate-x-1/2 w-[90%] h-2 bg-white/40 backdrop-blur-md rounded-full z-50 shadow-sm">
+  <motion.div
+    className="h-full bg-gradient-to-r from-blue-600 to-blue-400 rounded-full"
+    style={{ scaleX: scrollYProgress, transformOrigin: "0% 50%" }}
+  />
+</div>
+)}
+
+
 
       {/* Scroll spacers - creates scroll distance for each section */}
       {content.map((_, index) => (

@@ -119,7 +119,7 @@ export default function CoursesSection() {
       : courses.filter((c) => c.category === activeCategory);
 
   return (
-    <div className="w-full bg-white py-8 px-4 md:px-8">
+    <div id="courses" className="w-full bg-white py-8 px-4 md:px-8">
       <div>
         {/* Heading */}
         <h2 className="mb-6">

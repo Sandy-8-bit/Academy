@@ -17,18 +17,18 @@ const Footer: React.FC = () => {
 
         {/* CENTER: Copyright */}
         <div className="text-center text-gray-600 text-sm">
-          © {new Date().getFullYear()} DMIF Academy. All rights reserved.
+          © {new Date().getFullYear()} DMIF-Certification. All rights reserved.
         </div>
 
         {/* RIGHT: Social Icons */}
         <div className="flex items-center gap-4 text-blue-900">
-          <a href="https://instagram.com" target="_blank" rel="noreferrer">
+          <a href="https://www.instagram.com/dr_madhan_institute/" target="_blank" rel="noreferrer">
             <Instagram size={22} className="hover:text-blue-700 transition" />
           </a>
-          <a href="https://linkedin.com" target="_blank" rel="noreferrer">
+          <a href="https://www.linkedin.com/company/drmadhan/posts/?feedView=all" target="_blank" rel="noreferrer">
             <Linkedin size={22} className="hover:text-blue-700 transition" />
           </a>
-          <a href="https://youtube.com" target="_blank" rel="noreferrer">
+          <a href="https://www.youtube.com/@Dr.MadhanInstituteofFuture" target="_blank" rel="noreferrer">
             <Youtube size={22} className="hover:text-blue-700 transition" />
           </a>
         </div>

@@ -31,8 +31,8 @@ const content: ContentItem[] = [
     content: (
       <div className="h-full w-full bg-white flex items-center justify-center p-8">
         <img
-          src="https://images.unsplash.com/photo-1600880292089-90a7e086ee0c?w=1600&q=90&auto=format"
-          alt="Live Sessions"
+          src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=1600&q=90&auto=format"
+          alt="Lifetime Learning"
           className="w-full h-full object-cover rounded-lg"
         />
       </div>
@@ -46,8 +46,8 @@ const content: ContentItem[] = [
     content: (
       <div className="h-full w-full bg-white flex items-center justify-center p-8">
         <img
-          src="https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=1600&q=90&auto=format"
-          alt="Hands-On Projects"
+        src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=1600&q=90&auto=format"
+          alt="Lifetime Learning"
           className="w-full h-full object-cover rounded-lg"
         />
       </div>
@@ -74,7 +74,7 @@ const content: ContentItem[] = [
 
 export function WhyChooseUs() {
   return (
-    <div className="w-full ">
+    <div id="why" className="w-full ">
 
       {/* Modern Theme Header — MATCHES THE SCREENSHOT */}
       <div className="bg-white pt-5 px-4 md:px-8  border-gray-200">
