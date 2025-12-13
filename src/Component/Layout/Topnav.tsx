@@ -63,7 +63,7 @@ const TopNav: React.FC = () => {
            <a href="#why" className="hover:text-blue-700" onClick={() => setSidebarOpen(false)}>
             Why Choose Us
           </a>
-          <a href="#courses" className="hover:text-blue-700" onClick={() => setSidebarOpen(false)}>
+          <a href="#courses"  className="hover:text-blue-700" onClick={() => setSidebarOpen(false)}>
             Courses
           </a>
          
