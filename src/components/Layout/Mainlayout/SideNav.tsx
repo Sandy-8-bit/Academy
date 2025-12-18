@@ -2,7 +2,7 @@
 import React, { useState, useEffect, useCallback, useMemo } from 'react'
 import { motion } from 'motion/react'
 import { LogOut } from 'lucide-react'
-import { appRoutes } from '@/routes/appRoutes'
+import { appRoutes } from '../../../routes/appRoutes'
 
 type NavigationSection = 'main' | 'orders' | 'settings'
 
@@ -40,43 +40,51 @@ const SideNav: React.FC = () => {
     return activeRoute === route
   }
 
-  const navigationItems: NavigationItem[] = useMemo(
-    () => [
-      {
-        label: 'Dashboard',
-        path: appRoutes.dashboard.path,
-        icon: '/icons/sideNavIcons/dashboard-icon.svg',
-        activeIcon: '/icons/sideNavIcons/dashboard-icon-active.svg',
-        section: 'main',
-      },
-      {
-        label: 'Master Configuration',
-        path: appRoutes.master.path,
-        icon: '/icons/sideNavIcons/rawMaterials-icon.svg',
-        activeIcon: '/icons/sideNavIcons/rawMaterials-icon-active.svg',
-        section: 'main',
-      },
-      {
-        label: 'Order Managmenet',
-        path: appRoutes.orders.path,
-        icon: '/icons/sideNavIcons/rawMaterials-icon.svg',
-        activeIcon: '/icons/sideNavIcons/rawMaterials-icon-active.svg',
-        section: 'orders',
-      },
-      {
-        label: 'User Management',
-        path: appRoutes.userManagement.path,
-        icon: '/icons/sideNavIcons/rawMaterials-icon.svg',
-        activeIcon: '/icons/sideNavIcons/rawMaterials-icon-active.svg',
-        section: 'settings',
-      },
-    ],
-    []
-  )
+const navigationItems: NavigationItem[] = useMemo(
+  () => [
+    {
+      label: 'Home',
+      path: appRoutes.home,
+      icon: '/icons/sideNavIcons/dashboard-icon.svg',
+      activeIcon: '/icons/sideNavIcons/dashboard-icon-active.svg',
+      section: 'main',
+    },
+    {
+      label: 'My Courses',
+      path: appRoutes.myCourses.path,
+      icon: '/icons/sideNavIcons/courses-icon.svg',
+      activeIcon: '/icons/sideNavIcons/courses-icon-active.svg',
+      section: 'main',
+    },
+    {
+      label: 'Certifications',
+      path: appRoutes.certifications.path,
+      icon: '/icons/sideNavIcons/certification-icon.svg',
+      activeIcon: '/icons/sideNavIcons/certification-icon-active.svg',
+      section: 'main',
+    },
+    {
+      label: 'Profile',
+      path: appRoutes.profile.path,
+      icon: '/icons/sideNavIcons/profile-icon.svg',
+      activeIcon: '/icons/sideNavIcons/profile-icon-active.svg',
+      section: 'settings',
+    },
+    {
+      label: 'Settings',
+      path: appRoutes.settings.path,
+      icon: '/icons/sideNavIcons/settings-icon.svg',
+      activeIcon: '/icons/sideNavIcons/settings-icon-active.svg',
+      section: 'settings',
+    },
+  ],
+  []
+)
+
 
   const handleLogout = useCallback(() => {
     localStorage.removeItem('token')
-    window.location.href = appRoutes.signInPage
+    window.location.href = appRoutes.landingPage
   }, [])
 
   const toggleExpansion = () => setIsExpanded((prev) => !prev)

@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
-import NotificationCenter from '@/components/Common/NotificationCenter'
-import ProfileMenu from '@/components/Common/ProfileMenu'
+import NotificationCenter from '../../Common/NotificationCenter'
+import ProfileMenu from '../../Common/ProfileMenu'
 
 interface TopNavProps {
   userName?: string
