@@ -1,9 +1,9 @@
 
 import { useEffect } from "react";
-import ButtonSm from "../../Component/Common/Button";
+import ButtonSm from "../../components/Common/Button";
 import { courseData
 
- } from "../../Utils/courseData";
+ } from "../../utils/courseData";
  import { useNavigate } from "react-router-dom";
 
 export default function CourseDetailsPage() {

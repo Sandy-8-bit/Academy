@@ -1,4 +1,4 @@
-import { TestimonialSlider } from "../../Component/ui/Testimonial/testimonial-slider-1";
+import { TestimonialSlider } from "../../components/ui/Testimonial/testimonial-slider-1";
 
 // 1. Define the review data
 const reviews = [

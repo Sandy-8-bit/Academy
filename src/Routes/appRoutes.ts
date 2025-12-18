@@ -7,4 +7,5 @@ export const appRoutes = {
       details:"/Courses/:id"
     },
   },
+  signInPage:"/auth"
 };

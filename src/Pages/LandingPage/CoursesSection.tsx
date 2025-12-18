@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { LayoutTextFlip } from "../../Component/ui/layout-text-flip";
+import { LayoutTextFlip } from "../../components/ui/layout-text-flip";
 import { useNavigate } from "react-router-dom";
-import { appRoutes } from "../../Routes/appRoutes";
+import { appRoutes } from "../../routes/appRoutes";
 
 interface Course {
   id: number;

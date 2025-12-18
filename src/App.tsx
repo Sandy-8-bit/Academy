@@ -1,8 +1,8 @@
 import { Route, Routes } from "react-router-dom";
 import "./App.css";
-import { appRoutes } from "./Routes/appRoutes";
+import { appRoutes } from "./routes/appRoutes";
 import Main from "./Pages/LandingPage/Main";
-import Layout from "./Component/Layout/LandingLayout";
+import Layout from "./components/Layout/LandingLayout/LandingLayout";
 import CourseDetailsPage from "./Pages/LandingPage/CourseDetails";
 
 function App() {
