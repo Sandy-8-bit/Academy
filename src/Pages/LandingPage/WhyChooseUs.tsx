@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import { StickyScroll } from "../../components/ui/sticky-scroll-reveal";
+import { StickyScroll } from "../../ui/ui/sticky-scroll-reveal";
 
 interface ContentItem {
   title: string;
@@ -46,7 +46,7 @@ const content: ContentItem[] = [
     content: (
       <div className="h-full w-full bg-white flex items-center justify-center p-8">
         <img
-        src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=1600&q=90&auto=format"
+          src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=1600&q=90&auto=format"
           alt="Lifetime Learning"
           className="w-full h-full object-cover rounded-lg"
         />
@@ -60,26 +60,21 @@ const content: ContentItem[] = [
       "Earn a certification that is trusted and valued by top companies. Strengthen your portfolio with credentials that accelerate your career.",
     content: (
       <div className="h-full w-full bg-white flex items-center justify-center p-8">
-       <img
-   src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=1600&q=90&auto=format"
-  className="w-full h-full object-cover rounded-lg"
-/>
-
+        <img
+          src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=1600&q=90&auto=format"
+          className="w-full h-full object-cover rounded-lg"
+        />
       </div>
     ),
   },
 ];
 
-
-
 export function WhyChooseUs() {
   return (
     <div id="why" className="w-full ">
-
       {/* Modern Theme Header — MATCHES THE SCREENSHOT */}
       <div className="bg-white pt-5 px-4 md:px-8  border-gray-200">
         <div className="  text-center">
-
           {/* Heading with blue highlight effect */}
           <h1 className="text-3xl md:text-5xl font-bold text-gray-900 leading-tight mb-4">
             <span>Why Choose Us ? </span>
@@ -90,8 +85,8 @@ export function WhyChooseUs() {
 
           {/* Minimal description */}
           <p className="text-gray-600 text-[13px] md:text-lg text-center">
-            Your trusted partner for professional certifications — built on expertise,
-            transparency, and results-driven processes.
+            Your trusted partner for professional certifications — built on
+            expertise, transparency, and results-driven processes.
           </p>
         </div>
       </div>

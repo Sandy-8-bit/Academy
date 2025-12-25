@@ -1,37 +1,37 @@
-import ButtonSm from '@/components/Common/Button'
-import Input from '@/components/Common/Input'
-import { useLogin } from '@/queries/AuthQueries'
-import { type FormEvent, useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import ButtonSm from "@/ui/Common/Button";
+import Input from "@/ui/Common/Input";
+import { useLogin } from "@/queries/AuthQueries";
+import { type FormEvent, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export const SignInPage = () => {
-  const navigate = useNavigate()
-  const { mutate: login, isPending } = useLogin()
+  const navigate = useNavigate();
+  const { mutate: login, isPending } = useLogin();
 
-  const [identifier, setIdentifier] = useState('')
-  const [password, setPassword] = useState('')
-  const [showPassword, setShowPassword] = useState(false)
+  const [identifier, setIdentifier] = useState("");
+  const [password, setPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
 
   const handleLogin = () => {
     login(
       { identifier, password },
       {
-        onSuccess: (res:any) => {
+        onSuccess: (res: any) => {
           if (res.token) {
-            navigate('/dashboard')
-          } 
+            navigate("/dashboard");
+          }
         },
       }
-    )
-  }
+    );
+  };
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
-    event.preventDefault()
-    if (!identifier || !password || isPending) return
-    handleLogin()
-  }
+    event.preventDefault();
+    if (!identifier || !password || isPending) return;
+    handleLogin();
+  };
 
-  const isSubmitDisabled = !identifier || !password || isPending
+  const isSubmitDisabled = !identifier || !password || isPending;
 
   return (
     <div className="flex h-screen w-full flex-col justify-center lg:flex-row">
@@ -76,7 +76,7 @@ export const SignInPage = () => {
                 name="password"
                 required
                 autoComplete="current-password"
-                type={showPassword ? 'text' : 'password'}
+                type={showPassword ? "text" : "password"}
                 placeholder="Enter your password"
                 value={password}
                 onChange={(event) => setPassword(event.target.value)}
@@ -88,15 +88,15 @@ export const SignInPage = () => {
                 onClick={() => setShowPassword((prev) => !prev)}
                 className="ml-2 flex h-8 w-8 items-center justify-center rounded-full text-slate-500 transition hover:text-blue-600 focus:outline-none"
                 aria-pressed={showPassword}
-                aria-label={showPassword ? 'Hide password' : 'Show password'}
+                aria-label={showPassword ? "Hide password" : "Show password"}
               >
                 <img
                   src={
                     showPassword
-                      ? '/icons/eye-off-icon.svg'
-                      : '/icons/eye-icon.svg'
+                      ? "/icons/eye-off-icon.svg"
+                      : "/icons/eye-icon.svg"
                   }
-                  alt={showPassword ? 'Hide password' : 'Show password'}
+                  alt={showPassword ? "Hide password" : "Show password"}
                   className="h-5 w-5"
                 />
               </button>
@@ -114,7 +114,6 @@ export const SignInPage = () => {
             className="mt-2 w-full rounded-2xl bg-blue-500 py-3 text-white hover:bg-blue-700"
           />
         </form>
-
       </div>
 
       {/* RIGHT IMAGE SECTION */}
@@ -130,5 +129,5 @@ export const SignInPage = () => {
         />
       </div>
     </div>
-  )
-}
+  );
+};

@@ -1,4 +1,4 @@
-import ButtonSm from "../../components/Common/Button";
+import ButtonSm from "../../ui/Common/Button";
 
 export default function CtaSection() {
   return (

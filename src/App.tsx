@@ -5,15 +5,14 @@ import { appRoutes } from "./routes/appRoutes";
 import Main from "./pages/landingPage/Main";
 import CourseDetailsPage from "./pages/landingPage/CourseDetails";
 
-import Layout from "./components/Layout/LandingLayout/LandingLayout";
-import MainLayout from "./components/Layout/Mainlayout/MainLayout";
-
 // Pages
 import Home from "./pages/home/HomePage";
 import MyCourses from "./pages/myCourses/MyCoursesPage";
 import Certifications from "./pages/certifications/CertificationPage";
 import Profile from "./pages/profile/ProfilePage";
 import Settings from "./pages/settings/SettingPage";
+import { Layout } from "lucide-react";
+import MainLayout from "./ui/Layout/Mainlayout/MainLayout";
 
 function App() {
   return (
