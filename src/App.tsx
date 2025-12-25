@@ -2,18 +2,18 @@ import { Route, Routes } from "react-router-dom";
 import "./App.css";
 import { appRoutes } from "./routes/appRoutes";
 
-import Main from "./Pages/LandingPage/Main";
-import CourseDetailsPage from "./Pages/LandingPage/CourseDetails";
+import Main from "./pages/landingPage/Main";
+import CourseDetailsPage from "./pages/landingPage/CourseDetails";
 
 import Layout from "./components/Layout/LandingLayout/LandingLayout";
 import MainLayout from "./components/Layout/Mainlayout/MainLayout";
 
 // Pages
-import Home from "./Pages/Home/HomePage";
-import MyCourses from "./Pages/MyCourses/MyCoursesPage";
-import Certifications from "./Pages/Certifications/CertificationPage";
-import Profile from "./Pages/Profile/ProfilePage";
-import Settings from "./Pages/Settings/SettingPage";
+import Home from "./pages/home/HomePage";
+import MyCourses from "./pages/myCourses/MyCoursesPage";
+import Certifications from "./pages/certifications/CertificationPage";
+import Profile from "./pages/profile/ProfilePage";
+import Settings from "./pages/settings/SettingPage";
 
 function App() {
   return (

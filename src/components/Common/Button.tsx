@@ -1,5 +1,5 @@
 import React from "react";
-import { useLongPress } from "../../Hooks/useLongPress";
+import { useLongPress } from "../../hooks/useLongPress";
 
 type ButtonState = "default" | "outline" | "danger";
 
@@ -53,22 +53,22 @@ export const ButtonSm: React.FC<ButtonSmProps> = ({
       };
 
   return (
-<button
-  type={type}
-  disabled={disabled}
-  className={`btn-sm flex cursor-pointer flex-row items-center gap-2 rounded-[9px] px-3 py-2 text-sm transition-all duration-200 ease-in-out select-none 
+    <button
+      type={type}
+      disabled={disabled}
+      className={`btn-sm flex cursor-pointer flex-row items-center gap-2 rounded-[9px] px-3 py-2 text-sm transition-all duration-200 ease-in-out select-none 
     ${
       state === "default"
         ? "bg-blue-900 hover:bg-blue-800 active:bg-blue-700 text-white"
         : state === "outline"
-        ? "text-gray-800 outline-1 outline-slate-300 hover:bg-gray-100 active:bg-gray-200"
-        : state === "danger"
-        ? "bg-[#DC3545] hover:bg-[#BB2D3B] active:bg-[#A52834] text-white"
-        : ""
+          ? "text-gray-800 outline-1 outline-slate-300 hover:bg-gray-100 active:bg-gray-200"
+          : state === "danger"
+            ? "bg-[#DC3545] hover:bg-[#BB2D3B] active:bg-[#A52834] text-white"
+            : ""
     }
     ${className} flex justify-center`}
-  {...buttonProps}
->
+      {...buttonProps}
+    >
       {/* Left icon */}
       {imgUrl && iconPosition === "left" && (
         <img src={imgUrl} alt="" className="min-h-4 min-w-4" />
@@ -87,8 +87,6 @@ export const ButtonSm: React.FC<ButtonSmProps> = ({
     </button>
   );
 };
-
-
 
 export default ButtonSm;
 

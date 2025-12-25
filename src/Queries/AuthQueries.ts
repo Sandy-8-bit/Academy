@@ -8,7 +8,7 @@ import type {
   LoginRequest,
   RegisterRequest,
   AuthResponse,
-} from "../Types/AuthTypes"
+} from "../types/AuthTypes"
 
 /**
  * -------------------------------------------

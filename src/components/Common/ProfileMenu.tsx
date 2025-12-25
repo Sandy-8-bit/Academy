@@ -1,47 +1,47 @@
-import React, { useState, useEffect } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
-import { Moon, Sun, LogOut } from 'lucide-react'
-import { appRoutes } from '../../routes/appRoutes'
-import useClickOutside from '../../Hooks/useClickOutside'
+import React, { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Moon, Sun, LogOut } from "lucide-react";
+import { appRoutes } from "../../routes/appRoutes";
+import useClickOutside from "../../hooks/useClickOutside";
 export default function ProfileMenu() {
   // const [open, setOpen] = useState(false)
-  const [dark, setDark] = useState(false)
+  const [dark, setDark] = useState(false);
 
-  const random = React.useRef(Math.floor(Math.random() * 50)).current
+  const random = React.useRef(Math.floor(Math.random() * 50)).current;
   // 🟢 On mount, load theme from localStorage OR system preference
   useEffect(() => {
-    const saved = localStorage.getItem('theme')
+    const saved = localStorage.getItem("theme");
     if (
-      saved === 'dark' ||
-      (!saved && window.matchMedia('(prefers-color-scheme: dark)').matches)
+      saved === "dark" ||
+      (!saved && window.matchMedia("(prefers-color-scheme: dark)").matches)
     ) {
-      document.documentElement.classList.add('dark')
-      setDark(true)
+      document.documentElement.classList.add("dark");
+      setDark(true);
     } else {
-      document.documentElement.classList.remove('dark')
-      setDark(false)
+      document.documentElement.classList.remove("dark");
+      setDark(false);
     }
-  }, [])
+  }, []);
 
   const toggleTheme = () => {
-    const html = document.documentElement
-    if (html.classList.contains('dark')) {
-      html.classList.remove('dark')
-      localStorage.setItem('theme', 'light')
-      setDark(false)
+    const html = document.documentElement;
+    if (html.classList.contains("dark")) {
+      html.classList.remove("dark");
+      localStorage.setItem("theme", "light");
+      setDark(false);
     } else {
-      html.classList.add('dark')
-      localStorage.setItem('theme', 'dark')
-      setDark(true)
+      html.classList.add("dark");
+      localStorage.setItem("theme", "dark");
+      setDark(true);
     }
-  }
+  };
 
-  const [containerRef, open, setOpen] = useClickOutside(false)
+  const [containerRef, open, setOpen] = useClickOutside(false);
 
   const handleLogout = () => {
-    localStorage.removeItem('token')
-    window.location.href = appRoutes.signInPage
-  }
+    localStorage.removeItem("token");
+    window.location.href = appRoutes.signInPage;
+  };
 
   return (
     <div className="relative" ref={containerRef}>
@@ -62,7 +62,7 @@ export default function ProfileMenu() {
           alt="Profile"
           className="h-9 w-9 rounded-full object-cover"
           onError={(e) => {
-            ;(e.target as HTMLImageElement).src = '/images/default-user.png'
+            (e.target as HTMLImageElement).src = "/images/default-user.png";
           }}
         />
       </motion.button>
@@ -118,5 +118,5 @@ export default function ProfileMenu() {
         )}
       </AnimatePresence>
     </div>
-  )
+  );
 }
