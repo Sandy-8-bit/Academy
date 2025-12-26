@@ -1,39 +1,39 @@
 export const appRoutes = {
-  landingPage: '/',
-  signInPage: '/auth',
+  landingPage: "/",
+  signInPage: "/auth",
 
-  home: '/home',
-  Courses: {
-    path: "/Courses",
+  home: "/home",
+  course: {
+    path: "/course",
     children: {
-      details:"/Courses/:id"
+      details: "/course/:id",
     },
   },
   myCourses: {
-    path: '/my-courses',
+    path: "/my-courses",
     children: {
-      details: '/my-courses/:id',
+      details: "/my-courses/:id",
     },
   },
   certifications: {
-    path: '/certifications',
+    path: "/certifications",
     children: {
-      details: '/certifications/:id',
+      details: "/certifications/:id",
     },
   },
 
   profile: {
-    path: '/profile',
+    path: "/profile",
     children: {
-      edit: '/profile/edit',
+      edit: "/profile/edit",
     },
   },
 
   settings: {
-    path: '/settings',
+    path: "/settings",
     children: {
-      security: '/settings/security',
-      preferences: '/settings/preferences',
+      security: "/settings/security",
+      preferences: "/settings/preferences",
     },
   },
-}
+};

@@ -1,5 +1,4 @@
 import { Route, Routes } from "react-router-dom";
-import "./App.css";
 import { appRoutes } from "./routes/appRoutes";
 
 import Main from "./pages/landingPage/Main";
@@ -22,7 +21,7 @@ function App() {
 
       {/* 🔹 Course details (Landing layout) */}
       <Route
-        path={appRoutes.Courses.children.details}
+        path={appRoutes.course.children.details}
         element={
           <Layout>
             <CourseDetailsPage />

@@ -1,32 +1,27 @@
-import React from 'react'
-import { Outlet } from 'react-router-dom'
-import SideNav from './SideNav'
-import { TopNav } from './TopNav'
+import { SidebarProvider } from "@/components/ui/sidebar";
+import { Outlet } from "react-router-dom";
+import { TopNav } from "./TopNav";
+import { AppSidebar } from "@/components/layout/AppSideBar";
 
-const MainLayout: React.FC = () => {
-  // TODO: Replace with user context or auth
-  const userName = 'John Doe'
-
-  // TODO: Replace with utility function or Date-fns/Day.js
-  const formattedDate = 'Saturday, 11th November 2022'
+const MainLayout = () => {
+  const userName = "John Doe";
+  const formattedDate = "Saturday, 11th November 2022";
 
   return (
-    <div className="Main-entry-point flex h-screen w-screen flex-row overflow-hidden bg-[#FAFAFA]">
-      <SideNav />
-      <section className="flex h-full w-full flex-col overflow-hidden">
-        {/* Top Navbar */}
-        <TopNav userName={userName} formattedDate={formattedDate} />
-        {/* Content */}
-        <main
-          id="layout"
-          className="main-content flex-1 overflow-y-auto py-3 pr-3 pb-24 select-none! md:pb-0 lg:py-4 lg:pr-4"
-        >
-          {/*This is where the nested routes will be rendered which will be given my router dom from app.tsx  */}
-          <Outlet />
-        </main>
-      </section>
-    </div>
-  )
-}
+    <SidebarProvider>
+      <div className="flex h-screen w-screen overflow-hidden bg-[#FAFAFA]">
+        <AppSidebar />
 
-export default MainLayout
+        <section className="flex h-full w-full flex-col overflow-hidden">
+          <TopNav userName={userName} formattedDate={formattedDate} />
+
+          <main className="flex-1 overflow-y-auto py-3 pr-3 pb-24 md:pb-0 lg:py-4 lg:pr-4">
+            <Outlet />
+          </main>
+        </section>
+      </div>
+    </SidebarProvider>
+  );
+};
+
+export default MainLayout;
