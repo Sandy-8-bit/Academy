@@ -1,16 +1,11 @@
-export interface LoginRequest {
- identifier: string;
- password: string;
+export interface SignUpRequest {
+  name: string;
+  email: string;
+  password: string;
 }
 
-export interface RegisterRequest {
- name: string;
- email: string;
- password: string;
- phone?: string;
- roles?: string[];
-}
-
-export interface AuthResponse {
-    token?: string;
+export interface SignUpResponse {
+  id: string;
+  role: string;
+  email: string;
 }

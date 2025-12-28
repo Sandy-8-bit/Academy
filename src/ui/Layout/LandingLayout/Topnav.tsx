@@ -1,15 +1,17 @@
 import React, { useState } from "react";
 import ButtonSm from "../../Common/Button";
 import { Menu, X } from "lucide-react";
+import { useNavigate } from "react-router-dom";
+import { appRoutes } from "@/routes/appRoutes";
 
 const TopNav: React.FC = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const navigate = useNavigate();
 
   return (
     <>
       {/* Navbar */}
       <nav className="w-full bg-white shadow-sm px-6 py-3 flex items-center justify-between">
-        
         {/* Left: Logo */}
         <div className="flex items-center gap-2">
           <img
@@ -21,10 +23,16 @@ const TopNav: React.FC = () => {
 
         {/* Center Links (Desktop Only) */}
         <div className="hidden md:flex items-center gap-10 text-blue-900 font-medium">
-          <a href="#why" className="hover:text-blue-700 transition">Why Choose Us</a>
-          <a href="#courses" className="hover:text-blue-700 transition">Courses</a>
-          
-          <a href="#faq" className="hover:text-blue-700 transition">FAQ</a>
+          <a href="#why" className="hover:text-blue-700 transition">
+            Why Choose Us
+          </a>
+          <a href="#courses" className="hover:text-blue-700 transition">
+            Courses
+          </a>
+
+          <a href="#faq" className="hover:text-blue-700 transition">
+            FAQ
+          </a>
         </div>
 
         {/* Right: Apply Now Button */}
@@ -32,7 +40,9 @@ const TopNav: React.FC = () => {
           <ButtonSm
             state="default"
             text="Apply Now"
-            onClick={() => console.log("Applying...")}
+            onClick={() => {
+              navigate(appRoutes.home);
+            }}
           />
         </div>
 
@@ -60,14 +70,26 @@ const TopNav: React.FC = () => {
 
         {/* Links */}
         <div className="flex flex-col px-5 py-6 gap-6 text-blue-900 text-lg">
-           <a href="#why" className="hover:text-blue-700" onClick={() => setSidebarOpen(false)}>
+          <a
+            href="#why"
+            className="hover:text-blue-700"
+            onClick={() => setSidebarOpen(false)}
+          >
             Why Choose Us
           </a>
-          <a href="#courses"  className="hover:text-blue-700" onClick={() => setSidebarOpen(false)}>
+          <a
+            href="#courses"
+            className="hover:text-blue-700"
+            onClick={() => setSidebarOpen(false)}
+          >
             Courses
           </a>
-         
-          <a href="#faq" className="hover:text-blue-700" onClick={() => setSidebarOpen(false)}>
+
+          <a
+            href="#faq"
+            className="hover:text-blue-700"
+            onClick={() => setSidebarOpen(false)}
+          >
             FAQ
           </a>
 

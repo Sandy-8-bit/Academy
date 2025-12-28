@@ -1,10 +1,16 @@
-"use client";
-
 import * as React from "react";
-import { BookOpen, Command, Frame, Home, Map, PieChart } from "lucide-react";
+import {
+  BookOpen,
+  CheckCircle,
+  Command,
+  Frame,
+  Home,
+  Map,
+  PieChart,
+} from "lucide-react";
 
 import { NavMain } from "@/components/layout/NavMain";
-import { NavProjects } from "@/components/layout/NavProjects";
+import { NavRecents } from "@/components/layout/NavRecents";
 import { NavUser } from "@/components/layout/NavUser";
 import {
   Sidebar,
@@ -19,8 +25,8 @@ import { appRoutes } from "@/routes/appRoutes";
 
 const data = {
   user: {
-    name: "Sabarish v S",
-    email: "Sabarish@protonmail.com",
+    name: "Sabarish V S",
+    email: "Sabarish_7@protonmail.com",
     avatar: "/avatars/shadcn.jpg",
   },
   navMain: [
@@ -49,21 +55,27 @@ const data = {
         },
       ],
     },
+    {
+      title: "Certifications",
+      url: appRoutes.home,
+      icon: CheckCircle,
+      isActive: true,
+    },
   ],
 
-  projects: [
+  recentItems: [
     {
-      name: "Design Engineering",
+      name: "Full stack Web Development",
       url: "#",
       icon: Frame,
     },
     {
-      name: "Sales & Marketing",
+      name: "SQL Basics",
       url: "#",
       icon: PieChart,
     },
     {
-      name: "Travel",
+      name: "Git & GitHubFundamentals",
       url: "#",
       icon: Map,
     },
@@ -82,8 +94,8 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
                   <Command className="size-4" />
                 </div>
                 <div className="grid flex-1 text-left text-sm leading-tight">
-                  <span className="truncate font-medium">Acme Inc</span>
-                  <span className="truncate text-xs">Enterprise</span>
+                  <span className="truncate font-medium">DMIF</span>
+                  <span className="truncate text-xs">Course</span>
                 </div>
               </a>
             </SidebarMenuButton>
@@ -92,7 +104,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
       </SidebarHeader>
       <SidebarContent>
         <NavMain items={data.navMain} />
-        <NavProjects projects={data.projects} />
+        <NavRecents recentItems={data.recentItems} />
       </SidebarContent>
       <SidebarFooter>
         <NavUser user={data.user} />

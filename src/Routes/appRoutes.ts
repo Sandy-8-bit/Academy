@@ -9,6 +9,11 @@ export const appRoutes = {
       details: "/course/:id",
     },
   },
+  auth: {
+    signUp: "/auth/signup",
+    forgotPassword: "/auth/forgot-password",
+    signIn: "/auth/signin",
+  },
   myCourses: {
     path: "/my-courses",
     children: {

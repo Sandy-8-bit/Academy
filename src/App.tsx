@@ -3,44 +3,80 @@ import { appRoutes } from "./routes/appRoutes";
 
 import Main from "./pages/landingPage/Main";
 import CourseDetailsPage from "./pages/landingPage/CourseDetails";
+import { lazy, Suspense } from "react";
+import { Spinner } from "./ui/Layout/Mainlayout/Spinner";
 
-// Pages
-import Home from "./pages/home/HomePage";
-import MyCourses from "./pages/myCourses/MyCoursesPage";
-import Certifications from "./pages/certifications/CertificationPage";
-import Profile from "./pages/profile/ProfilePage";
-import Settings from "./pages/settings/SettingPage";
-import { Layout } from "lucide-react";
-import MainLayout from "./ui/Layout/Mainlayout/MainLayout";
+/* -------------------------------------------------------------------------- */
+/*                                AUTH PAGES                                  */
+/* -------------------------------------------------------------------------- */
+
+export const SignInPage = lazy(() => import("./pages/auth/SignInPage"));
+
+export const SignupPage = lazy(() => import("./pages/auth/SignUpPage"));
+
+/* -------------------------------------------------------------------------- */
+/*                               MAIN PAGES                                   */
+/* -------------------------------------------------------------------------- */
+
+export const HomePage = lazy(() => import("./pages/home/HomePage"));
+
+export const MyCoursesPage = lazy(
+  () => import("./pages/myCourses/MyCoursesPage")
+);
+
+export const CertificationsPage = lazy(
+  () => import("./pages/certifications/CertificationPage")
+);
+
+export const ProfilePage = lazy(() => import("./pages/profile/ProfilePage"));
+
+export const SettingsPage = lazy(() => import("./pages/settings/SettingPage"));
+
+/* -------------------------------------------------------------------------- */
+/*                                LAYOUTS                                     */
+/* -------------------------------------------------------------------------- */
+
+export const LandingPageLayout = lazy(
+  () => import("./ui/Layout/LandingLayout/LandingLayout")
+);
+
+export const MainLayout = lazy(
+  () => import("./ui/Layout/Mainlayout/MainLayout")
+);
 
 function App() {
   return (
-    <Routes>
-      {/* 🔹 Landing page */}
-      <Route path={appRoutes.landingPage} element={<Main />} />
+    <Suspense fallback={<Spinner />}>
+      <Routes>
+        {/* 🔹 Landing page */}
+        <Route path={appRoutes.landingPage} element={<Main />} />
 
-      {/* 🔹 Course details (Landing layout) */}
-      <Route
-        path={appRoutes.course.children.details}
-        element={
-          <Layout>
-            <CourseDetailsPage />
-          </Layout>
-        }
-      />
-
-      {/* 🔹 Main authenticated layout */}
-      <Route element={<MainLayout />}>
-        <Route path={appRoutes.home} element={<Home />} />
-        <Route path={appRoutes.myCourses.path} element={<MyCourses />} />
+        {/* 🔹 Course details (Landing layout) */}
         <Route
-          path={appRoutes.certifications.path}
-          element={<Certifications />}
+          path={appRoutes.course.children.details}
+          element={
+            <LandingPageLayout>
+              <CourseDetailsPage />
+            </LandingPageLayout>
+          }
         />
-        <Route path={appRoutes.profile.path} element={<Profile />} />
-        <Route path={appRoutes.settings.path} element={<Settings />} />
-      </Route>
-    </Routes>
+
+        <Route path={appRoutes.auth.signIn} element={<SignInPage />} />
+        <Route path={appRoutes.auth.signUp} element={<SignupPage />} />
+
+        {/* 🔹 Main authenticated layout */}
+        <Route element={<MainLayout />}>
+          <Route path={appRoutes.home} element={<HomePage />} />
+          <Route path={appRoutes.myCourses.path} element={<MyCoursesPage />} />
+          <Route
+            path={appRoutes.certifications.path}
+            element={<CertificationsPage />}
+          />
+          <Route path={appRoutes.profile.path} element={<ProfilePage />} />
+          <Route path={appRoutes.settings.path} element={<SettingsPage />} />
+        </Route>
+      </Routes>
+    </Suspense>
   );
 }
 

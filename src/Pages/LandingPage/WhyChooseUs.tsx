@@ -1,4 +1,3 @@
-"use client";
 import React from "react";
 import { StickyScroll } from "../../ui/ui/sticky-scroll-reveal";
 
