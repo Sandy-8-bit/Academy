@@ -34,7 +34,7 @@ const data = {
       title: "Home",
       url: appRoutes.home,
       icon: Home,
-      isActive: true,
+      active: true,
     },
     {
       title: "Courses",
@@ -57,9 +57,9 @@ const data = {
     },
     {
       title: "Certifications",
-      url: appRoutes.home,
+      url: appRoutes.certifications,
       icon: CheckCircle,
-      isActive: true,
+      active: true,
     },
   ],
 

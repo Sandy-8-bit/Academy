@@ -17,7 +17,7 @@ import {
   SidebarMenuSubButton,
   SidebarMenuSubItem,
 } from "@/components/ui/sidebar";
-import { isActiveRoute } from "@/lib/utils";
+import { cn, isActiveRoute } from "@/lib/utils";
 
 export function NavMain({
   items,
@@ -56,8 +56,11 @@ export function NavMain({
                 <SidebarMenuButton
                   asChild
                   tooltip={item.title}
-                  data-active={parentActive}
-                  className="rounded-md data-[active=true]:bg-sidebar-primary data-[active=true]:text-sidebar-primary-foreground"
+                  className={cn(
+                    "rounded-md",
+                    parentActive &&
+                      "bg-sidebar-primary text-sidebar-primary-foreground"
+                  )}
                 >
                   <NavLink to={item.url}>
                     <item.icon />
@@ -87,8 +90,9 @@ export function NavMain({
                             <SidebarMenuSubItem key={subItem.title}>
                               <SidebarMenuSubButton
                                 asChild
-                                data-active={subActive}
-                                className="data-[active=true]:bg-muted data-[active=true]:font-medium"
+                                className={cn(
+                                  subActive && "bg-muted font-medium"
+                                )}
                               >
                                 <NavLink to={subItem.url}>
                                   <span>{subItem.title}</span>
