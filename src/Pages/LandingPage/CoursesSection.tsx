@@ -213,7 +213,7 @@ export default function CoursesSection() {
                   <button
                     onClick={() => {
                       if (!isComingSoon) {
-                        navigate(`${appRoutes.Courses.path}/${course.id}`);
+                        navigate(`${appRoutes.course.path}/${course.id}`);
                       }
                     }}
                     className={`

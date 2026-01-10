@@ -57,7 +57,7 @@ const data = {
     },
     {
       title: "Certifications",
-      url: appRoutes.certifications,
+      url: appRoutes.certifications.path,
       icon: CheckCircle,
       active: true,
     },

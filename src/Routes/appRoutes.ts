@@ -7,6 +7,7 @@ export const appRoutes = {
     path: "/course",
     children: {
       details: "/course/:id",
+      
     },
   },
   auth: {
@@ -18,6 +19,7 @@ export const appRoutes = {
     path: "/my-courses",
     children: {
       details: "/my-courses/:id",
+      courseTier: "/tier/:id",
     },
   },
   certifications: {
