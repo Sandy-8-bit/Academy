@@ -1,32 +1,39 @@
-import { appRoutes } from '@/routes/appRoutes'
-import { useLocation, useNavigate } from 'react-router-dom'
-import { toast } from 'react-hot-toast'
+import { appRoutes } from "@/routes/appRoutes";
+import { toast } from "react-hot-toast";
 
 // eslint-disable-next-line react-refresh/only-export-components
 export function authHandler() {
   const token = document.cookie
-    .split('; ')
-    .find((row) => row.startsWith('token='))
-    ?.split('=')[1]
+    .split("; ")
+    .find((row) => row.startsWith("token="))
+    ?.split("=")[1];
 
   if (!token) {
-    HandleUnauthorized()
+    HandleUnauthorized();
   }
 
-  return token
+  return token;
 }
 
 export function HandleUnauthorized() {
-  const navigate = useNavigate()
-  const location = useLocation()
+  const currentPath = window.location.pathname + window.location.search;
 
-  return () => {
-    toast.error('Unauthorized. Please login again.')
+  const redirectPath = `${appRoutes.auth.signIn}?redirect=${encodeURIComponent(
+    currentPath
+  )}`;
 
-    setTimeout(() => {
-      const currentPath = location.pathname + location.search
-      const redirectPath = `${appRoutes.signInPage}?redirect=${encodeURIComponent(currentPath)}`
-      navigate(redirectPath, { replace: true })
-    }, 8000)
-  }
+  // Optional toast before redirect
+  toast.error("Unauthorized. Please login again.");
+  setTimeout(() => {
+    window.location.href = redirectPath;
+  }, 500);
+
+  // return () => {
+
+  //   setTimeout(() => {
+  //     const currentPath = location.pathname + location.search;
+  //     const redirectPath = `${appRoutes.signInPage}?redirect=${encodeURIComponent(currentPath)}`;
+  //     navigate(redirectPath, { replace: true });
+  //   }, 8000);
+  // };
 }
