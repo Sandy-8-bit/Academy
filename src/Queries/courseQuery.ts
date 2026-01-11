@@ -32,35 +32,6 @@ export const useFetchCourses = () => {
   });
 };
 
-/* -------------------- GET VIDEO PLAY URL -------------------- */
-export const useFetchVideoPlayUrl = (videoId: string | undefined) => {
-  const fetchVideoPlayUrl = async (): Promise<VideoPlayResponse> => {
-    const token = authHandler();
-
-    try {
-      const res = await axiosInstance.get<VideoPlayResponse>(
-        `${apiRoutes.mediaViewUrl}/${videoId}/play`,
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        }
-      );
-
-      return res.data;
-    } catch (error) {
-      handleApiError(error, "fetch video play url");
-      throw error;
-    }
-  };
-
-  return useQuery({
-    queryKey: ["video-play", videoId],
-    queryFn: fetchVideoPlayUrl,
-    enabled: !!videoId,
-    staleTime: 1000 * 60 * 5, // cache for 5 minutes
-  });
-};
 
 
 
