@@ -6,7 +6,7 @@ import { authHandler } from "@/utils/authHandler";
 import { handleApiError } from "@/utils/handleApiError";
 
 interface VideoPlayResponse {
-  video_url: string;   // adjust based on your backend response
+  video_url: string; // adjust based on your backend response
   duration?: number;
 }
 /* -------------------- GET ALL COURSES -------------------- */

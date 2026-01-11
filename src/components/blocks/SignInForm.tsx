@@ -13,6 +13,7 @@ import { supabase } from "@/lib/supabase";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import { appRoutes } from "@/routes/appRoutes";
+import Cookies from "js-cookie";
 
 export function LoginForm({
   className,
@@ -48,6 +49,7 @@ export function LoginForm({
     }
 
     toast.success("Welcome back");
+    Cookies.set("token", data.session?.access_token || "");
     navigate(appRoutes.home);
   };
 

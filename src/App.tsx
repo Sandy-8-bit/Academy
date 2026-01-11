@@ -74,8 +74,14 @@ function App() {
             path={appRoutes.certifications.path}
             element={<CertificationsPage />}
           />
-          <Route path={appRoutes.myCourses.children.courseTier} element={<TierPage/>} />
-          <Route path={appRoutes.myCourses.children.courseContent} element={<CourseContentPage/>} />
+          <Route
+            path={appRoutes.myCourses.children.courseTier}
+            element={<TierPage />}
+          />
+          <Route
+            path={appRoutes.myCourses.children.courseContent}
+            element={<CourseContentPage />}
+          />
           <Route path={appRoutes.profile.path} element={<ProfilePage />} />
           <Route path={appRoutes.settings.path} element={<SettingsPage />} />
         </Route>

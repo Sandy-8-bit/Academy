@@ -1,13 +1,11 @@
 export const appRoutes = {
   landingPage: "/",
-  signInPage: "/auth",
 
   home: "/home",
   course: {
     path: "/course",
     children: {
       details: "/course/:id",
-      
     },
   },
   auth: {
