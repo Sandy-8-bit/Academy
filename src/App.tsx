@@ -6,6 +6,7 @@ import CourseDetailsPage from "./pages/landingPage/CourseDetails";
 import { lazy, Suspense } from "react";
 import { Spinner } from "./ui/Layout/Mainlayout/Spinner";
 import TierPage from "./pages/myCourses/TierManagement";
+import { CourseContentPage } from "./pages/myCourses/CourseContent";
 
 /* -------------------------------------------------------------------------- */
 /*                                AUTH PAGES                                  */
@@ -74,6 +75,7 @@ function App() {
             element={<CertificationsPage />}
           />
           <Route path={appRoutes.myCourses.children.courseTier} element={<TierPage/>} />
+          <Route path={appRoutes.myCourses.children.courseContent} element={<CourseContentPage/>} />
           <Route path={appRoutes.profile.path} element={<ProfilePage />} />
           <Route path={appRoutes.settings.path} element={<SettingsPage />} />
         </Route>

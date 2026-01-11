@@ -2,6 +2,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import { ArrowLeft, Blocks } from "lucide-react";
 import { useFetchTiersByCourse } from "@/queries/tierQuery";
 import type { Tier } from "@/types/tierTypes";
+import ButtonSm from "@/ui/Common/Button";
 
 const TierPage = () => {
   const { id: courseId } = useParams<{ id: string }>();
@@ -71,13 +72,14 @@ const TierPage = () => {
                     {tier.description || "No description provided"}
                   </p>
 
-                  <button
+                  <ButtonSm
+                  state="default"
                     type="button"
-                    onClick={() => navigate(`/course/${courseId}/tier/${tier.id}`)}
+                    onClick={() =>  navigate(`/my-courses/${courseId}/tier/${tier.id}`)}
                     className="w-full inline-flex justify-center items-center gap-2 rounded-md bg-gray-100 px-4 py-2.5 text-sm font-medium text-gray-900 hover:bg-gray-200 transition-colors"
                   >
                     View Content →
-                  </button>
+                  </ButtonSm>
                 </div>
               </article>
             ))}

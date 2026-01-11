@@ -1,10 +1,11 @@
 import { useNavigate } from "react-router-dom";
-import { ArrowLeft, BookOpen, Clock3 } from "lucide-react";
-import { useFetchCourses } from "@/queries/CourseQuery";
+import { BookOpen, Clock3 } from "lucide-react";
+import { useFetchCourses } from "@/queries/courseQuery";
 import type { CourseResponse } from "@/types/courseTypes";
 
 const MyCourses = () => {
   const navigate = useNavigate();
+
   const { data: courses = [], isLoading, isError, refetch } = useFetchCourses();
 
   const formatDate = (value: string): string => {
@@ -24,7 +25,7 @@ const MyCourses = () => {
     const hasThumbnail = Boolean(course.thumbnail_url?.trim());
 
     const handleCardClick = () => {
-      navigate(`/tier/${course.id}`);
+      navigate(`/my-courses/tier/${course.id}`);
     };
 
     return (

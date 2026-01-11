@@ -19,7 +19,8 @@ export const appRoutes = {
     path: "/my-courses",
     children: {
       details: "/my-courses/:id",
-      courseTier: "/tier/:id",
+      courseTier: "/my-courses/tier/:id",
+      courseContent: "/my-courses/:courseId/tier/:tierId",
     },
   },
   certifications: {
