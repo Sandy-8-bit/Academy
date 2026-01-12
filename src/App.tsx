@@ -69,7 +69,7 @@ function App() {
         {/* 🔹 Main authenticated layout */}
         <Route element={<MainLayout />}>
           <Route path={appRoutes.home} element={<HomePage />} />
-          <Route path={appRoutes.myCourses.path} element={<MyCoursesPage />} />
+          <Route path={appRoutes.course.path} element={<MyCoursesPage />} />
           <Route
             path={appRoutes.certifications.path}
             element={<CertificationsPage />}

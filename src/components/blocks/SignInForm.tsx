@@ -49,7 +49,7 @@ export function LoginForm({
     }
 
     toast.success("Welcome back");
-    Cookies.set("token", data.session?.access_token || "");
+    Cookies.set("token-dmif", data.session?.access_token || "");
     navigate(appRoutes.home);
   };
 
