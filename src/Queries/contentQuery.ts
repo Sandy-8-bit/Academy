@@ -1,10 +1,8 @@
-import {  useQuery } from "@tanstack/react-query";
+import { useQuery } from "@tanstack/react-query";
 import axiosInstance from "@/utils/axios";
 import { authHandler } from "@/utils/authHandler";
 import { handleApiError } from "@/utils/handleApiError";
-import {
-  type TierContentsResponse,
-} from "@/types/courseContent";
+import { type TierContentsResponse } from "@/types/courseContent";
 import { apiRoutes } from "@/routes/apiRoutes";
 
 export type UpdateTierContentPayload =
@@ -37,7 +35,7 @@ export type UpdateTierContentPayload =
     };
 
 interface VideoPlayResponse {
-  video_url: string;   // adjust based on your backend response
+  video_url: string; // adjust based on your backend response
   duration?: number;
 }
 
@@ -71,8 +69,6 @@ export const useFetchTierContents = (tierId: string | undefined) => {
 
 // play video query
 
-
-
 export const useFetchVideoPlayUrl = (videoId: string | undefined) => {
   const fetchVideoPlayUrl = async (): Promise<VideoPlayResponse> => {
     const token = authHandler();
@@ -90,7 +86,6 @@ export const useFetchVideoPlayUrl = (videoId: string | undefined) => {
       return res.data;
     } catch (error) {
       handleApiError(error, "fetch video play url");
-      throw error;
     }
   };
 
@@ -98,8 +93,7 @@ export const useFetchVideoPlayUrl = (videoId: string | undefined) => {
     queryKey: ["video-play", videoId],
     queryFn: fetchVideoPlayUrl,
     enabled: !!videoId,
+    retry: 1,
     staleTime: 1000 * 60 * 5, // cache for 5 minutes
   });
 };
-
-

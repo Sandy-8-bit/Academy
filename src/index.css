@@ -31,7 +31,6 @@ select:-webkit-autofill {
   transition: background-color 9999s ease-in-out 0s;
 }
 
-
 body {
   font-family: "Satoshi", sans-serif;
   background-color: white;
@@ -64,7 +63,7 @@ body {
   --chart-5: oklch(0.42 0.18 266);
   --sidebar: oklch(0.985 0 0);
   --sidebar-foreground: oklch(0.145 0 0);
-  --sidebar-primary: #3727ca;
+  --sidebar-primary: #16098b;
   --sidebar-primary-foreground: oklch(0.985 0 0);
   --sidebar-accent: oklch(0.97 0 0);
   --sidebar-accent-foreground: oklch(0.205 0 0);
@@ -221,5 +220,3 @@ body {
     @apply bg-background text-foreground;
   }
 }
-
-

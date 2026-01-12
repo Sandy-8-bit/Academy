@@ -57,7 +57,7 @@ export function NavMain({
                   asChild
                   tooltip={item.title}
                   className={cn(
-                    "rounded-md",
+                    "rounded-md font-medium",
                     parentActive &&
                       "bg-sidebar-primary text-sidebar-primary-foreground"
                   )}
