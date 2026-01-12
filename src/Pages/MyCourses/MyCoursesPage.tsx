@@ -117,7 +117,7 @@ const MyCourses = () => {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Main Content */}
-      <section className="p-6 max-w-7xl mx-auto">
+      <section className="p-4">
         {isError ? (
           <div className="rounded-lg border border-red-200 bg-red-50 p-6 flex flex-col gap-3">
             <p className="font-medium text-red-900">Unable to load courses.</p>

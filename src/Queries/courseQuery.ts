@@ -5,10 +5,6 @@ import type { CourseResponse } from "../types/courseTypes";
 import { authHandler } from "@/utils/authHandler";
 import { handleApiError } from "@/utils/handleApiError";
 
-interface VideoPlayResponse {
-  video_url: string; // adjust based on your backend response
-  duration?: number;
-}
 /* -------------------- GET ALL COURSES -------------------- */
 export const useFetchCourses = () => {
   const fetchCourses = async (): Promise<CourseResponse[]> => {

@@ -7,6 +7,7 @@ import { lazy, Suspense } from "react";
 import { Spinner } from "./ui/Layout/Mainlayout/Spinner";
 import TierPage from "./pages/myCourses/TierManagement";
 import { CourseContentPage } from "./pages/myCourses/CourseContent";
+import ProtectedRoute from "./ui/Layout/Mainlayout/ProtectedRoute";
 
 /* -------------------------------------------------------------------------- */
 /*                                AUTH PAGES                                  */
@@ -68,22 +69,27 @@ function App() {
 
         {/* 🔹 Main authenticated layout */}
         <Route element={<MainLayout />}>
-          <Route path={appRoutes.home} element={<HomePage />} />
-          <Route path={appRoutes.myCourses.path} element={<MyCoursesPage />} />
-          <Route
-            path={appRoutes.certifications.path}
-            element={<CertificationsPage />}
-          />
-          <Route
-            path={appRoutes.myCourses.children.courseTier}
-            element={<TierPage />}
-          />
-          <Route
-            path={appRoutes.myCourses.children.courseContent}
-            element={<CourseContentPage />}
-          />
-          <Route path={appRoutes.profile.path} element={<ProfilePage />} />
-          <Route path={appRoutes.settings.path} element={<SettingsPage />} />
+          <Route element={<ProtectedRoute />}>
+            <Route path={appRoutes.home} element={<HomePage />} />
+            <Route
+              path={appRoutes.myCourses.path}
+              element={<MyCoursesPage />}
+            />
+            <Route
+              path={appRoutes.certifications.path}
+              element={<CertificationsPage />}
+            />
+            <Route
+              path={appRoutes.myCourses.children.courseTier}
+              element={<TierPage />}
+            />
+            <Route
+              path={appRoutes.myCourses.children.courseContent}
+              element={<CourseContentPage />}
+            />
+            <Route path={appRoutes.profile.path} element={<ProfilePage />} />
+            <Route path={appRoutes.settings.path} element={<SettingsPage />} />
+          </Route>
         </Route>
       </Routes>
     </Suspense>
