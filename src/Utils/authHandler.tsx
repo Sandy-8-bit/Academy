@@ -4,9 +4,9 @@ import { toast } from "react-hot-toast";
 // eslint-disable-next-line react-refresh/only-export-components
 export function authHandler() {
   const token = document.cookie
-    .split("; ")
-    .find((row) => row.startsWith("token-dmif="))
-    ?.split("=")[1];
+    .split('; ')
+    .find((row) => row.startsWith('token-dmif='))
+    ?.split('=')[1]
 
   if (!token) {
     HandleUnauthorized();

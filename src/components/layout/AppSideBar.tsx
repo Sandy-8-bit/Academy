@@ -38,7 +38,7 @@ const data = {
     },
     {
       title: "Courses",
-      url: appRoutes.course.path,
+      url: appRoutes.myCourses.path,
       icon: BookOpen,
       items: [
         {
