@@ -8,6 +8,7 @@ import { Spinner } from "./ui/Layout/Mainlayout/Spinner";
 import TierPage from "./pages/myCourses/TierManagement";
 import { CourseContentPage } from "./pages/myCourses/CourseContent";
 import ProtectedRoute from "./ui/Layout/Mainlayout/ProtectedRoute";
+import CoursesSubPage from "./pages/CoursesPage";
 
 /* -------------------------------------------------------------------------- */
 /*                                AUTH PAGES                                  */
@@ -75,6 +76,7 @@ function App() {
               path={appRoutes.myCourses.path}
               element={<MyCoursesPage />}
             />
+            <Route path="/test" element={<CoursesSubPage/>} />
             <Route
               path={appRoutes.certifications.path}
               element={<CertificationsPage />}
