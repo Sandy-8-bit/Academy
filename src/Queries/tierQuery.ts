@@ -32,5 +32,3 @@ export const useFetchTiersByCourse = (courseId: string) => {
     enabled: !!courseId,
   });
 };
-
-
