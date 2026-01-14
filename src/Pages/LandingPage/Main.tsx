@@ -1,4 +1,4 @@
-import Layout from "../../Component/Layout/LandingLayout";
+import Layout from "@/ui/Layout/LandingLayout/LandingLayout";
 import CoursesSection from "./CoursesSection";
 import CtaSection from "./Cta";
 import CertificationFAQ from "./Faq";

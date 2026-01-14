@@ -1,4 +1,4 @@
-import { Card } from "../../Component/ui/card";
+import { Card } from "../../ui/ui/card";
 
 const cards = [
   {
