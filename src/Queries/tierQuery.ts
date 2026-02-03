@@ -21,7 +21,7 @@ export const useFetchTiersByCourse = (courseId: string) => {
       );
       return res.data;
     } catch (error) {
-      handleApiError(error, "fetch tiers");
+      // Re-throw without showing toast - let component handle it
       throw error;
     }
   };
@@ -30,5 +30,6 @@ export const useFetchTiersByCourse = (courseId: string) => {
     queryKey: ["tiers", courseId],
     queryFn: fetchTiers,
     enabled: !!courseId,
+    retry: false,
   });
 };
